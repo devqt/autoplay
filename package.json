@@ -1,0 +1,74 @@
+{
+  "name": "electron-with-create-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^18.0.1",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-notarize": "^1.2.1",
+    "electron-rebuild": "^3.2.7",
+    "electronmon": "^2.0.2",
+    "foreman": "^2.0.0",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "robotjs": "^0.6.0"
+  },
+  "homepage": "./",
+  "main": "src/electron-starter.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "start:react": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electronmon .",
+    "dev": "nf start -p 3000",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "electronmon": {
+    "patterns": [
+      "**/*",
+      "!node_modules",
+      "!node_modules/**/*",
+      "!.*",
+      "!**/*.map"
+    ]
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_with_create_react_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
