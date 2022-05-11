@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const robotjs = require('robotjs');
+// const nutjs = require("@nut-tree/nut-js");
 const path = require('path');
 const url = require('url');
 
@@ -66,9 +67,15 @@ ipcMain.on('ipc-example', async (event, arg) => {
     console.log(msgTemplate(arg));
 });
 
-ipcMain.on('robotjs', async (event, arg) => {
+ipcMain.handle('robotjs', async (event, arg) => {
     const [fName, ...args] = arg;
-    robotjs[fName](...args);
+    return await robotjs[fName](...args);
+});
+
+ipcMain.handle('nutjs', async (event, arg) => {
+    const [fName, ...args] = arg;
+    // return console.log(arg);
+    // nutjs.keyboard[fName](...args);
 });
 
 // In this file you can include the rest of your app's specific main process

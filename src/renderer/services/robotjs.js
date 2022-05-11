@@ -1,6 +1,6 @@
-import nativeFactory from './nativeFactory';
+import { invokeFactory, sendFactory } from './nativeFactory';
 
-const robotjsService = nativeFactory('robotjs', [
+const robotjsService = invokeFactory('robotjs', [
     'setMouseDelay', 
     'moveMouse', 
     'moveMouseSmooth', 

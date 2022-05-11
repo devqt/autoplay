@@ -17,10 +17,11 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "@nut-tree/nut-js": "^2.0.1",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "robotjs": "^0.6.0"
+    "robotjs": "git+https://github.com/octalmage/robotjs.git"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
@@ -33,7 +34,8 @@
     "electron": "electronmon .",
     "dev": "nf start -p 3000",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "electronmon": {
     "patterns": [
